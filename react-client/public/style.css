@@ -1,0 +1,16 @@
+body {
+    margin: 20px;
+    background-color: rgb(209, 177, 242);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    margin: 10px;
+}
