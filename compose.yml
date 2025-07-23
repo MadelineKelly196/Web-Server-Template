@@ -1,0 +1,22 @@
+services:
+  express-server:
+    build: ./express-server
+    container_name: express-server
+    env_file:
+      - .env
+    ports:
+      - "${VITE_EXPRESS_PORT}:${VITE_EXPRESS_PORT}"
+    restart: always
+
+  react-frontend:
+    build: ./react-client
+    ports:
+      - "5124:80"
+    volumes:
+     - .:/app
+     - ./node_modules:/app/node_modules
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+    command: npm start
