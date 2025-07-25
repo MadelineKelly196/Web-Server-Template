@@ -5,13 +5,14 @@ import path from 'path';
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   // Load env file from root folder based on `mode`
-  const envPath = path.resolve(process.cwd(), '../');
+  const envPath = path.resolve(process.cwd());
   const env = loadEnv(mode, envPath);
 
   //proxy for backend connection
   return {
     plugins: [react()],
     server: {
+      host: true,
       proxy: {
         '/express': {
           target: `http://${env.VITE_EXPRESS_HOST}:${env.VITE_EXPRESS_PORT}`,

@@ -25,6 +25,9 @@ FROM nginx:alpine AS production
 # Copy the build files from the builder stage to the Nginx web directory
 COPY --from=builder /app/dist /usr/share/nginx/html
 
+# Copy nginx.conf to enable proxy support to backend
+COPY nginx.conf /etc/nginx/conf.d/default.conf 
+
 # Expose the default NGINX port
 EXPOSE 80
 

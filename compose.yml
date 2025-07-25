@@ -20,7 +20,7 @@ services:
     environment:
       NODE_ENV: production
     ports:
-      - 5173:80
+      - 80:80
     depends_on:
       - express-server
 
